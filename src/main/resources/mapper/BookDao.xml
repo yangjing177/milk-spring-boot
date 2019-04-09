@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.neu.yang.mapper.BookDao">
+    <select id="queryBook" resultType="com.neu.yang.entity.Book">
+        select * from book
+    </select>
+    <select id="queryBookById" resultType="com.neu.yang.entity.Book">
+        select * from book where id=#{id}
+    </select>
+    <insert id="insertBook" useGeneratedKeys="true" keyProperty="id">
+        insert into book(bname,author,sex,gift,time,pic) values(#{bname},#{author},#{sex},#{gift},#{time},#{pic})
+    </insert>
+    <update id="updateBook" parameterType="com.neu.yang.entity.Book">
+        update book
+        <set>
+            <if test="bname!=null">bname=#{bname},</if>
+            <if test="author!=null">author=#{author}</if>
+            <if test="sex!=null">author=#{sex}</if>
+            <if test="gift!=null">author=#{gift}</if>
+            <if test="time!=null">time=#{time},</if>
+            <if test="pic!=null">pic=#{pic}</if>
+        </set>
+        where id=#{id}
+    </update>
+    <delete id="deleteBook">
+        delete from
+        book
+        where
+        id=#{id}
+    </delete>
+
+
+</mapper>

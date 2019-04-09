@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.neu.yang.mapper.UserDao">
+    <select id="queryUser" resultType="com.neu.yang.entity.User">
+        select * from user where uname=#{uname} and upwd=#{upwd}
+    </select>
+    <select id="findUname" resultType="com.neu.yang.entity.User">
+        select * from user where uname=#{uname}
+    </select>
+    <insert id="addUser" parameterType="com.neu.yang.entity.User">
+        insert into user(id,uname,upwd,type) values(#{id},#{uname},#{upwd},#{type})
+    </insert>
+    <select id="login" resultType="com.neu.yang.entity.User">
+        select * from user where uname=#{uname} and upwd=#{upwd}
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+<#list tableList as table>
+DROP TABLE IF EXISTS `${table.tableName}`;
+CREATE TABLE `${table.tableName}`  (
+<#list table.columnList as column>
+`${column.fieldName}` ${column.fcolumnType} <#if column.isNull>NULL<#else>NOT NULL</#if> <#if column.defaultValue?? && column.defaultValue!="">default ${column.defaultValue}</#if> COMMENT '${column.comment?trim}',
+</#list>
+<#if (table.primayKey?size>1) >
+<#list table.primayKey as pk>
+KEY (`${pk.fieldName}`) USING BTREE,
+</#list>
+<#else>
+<#list table.primayKey as pk>
+PRIMARY KEY (`${pk.fieldName}`) USING BTREE
+</#list>
+</#if>
+) ENGINE = InnoDB COMMENT '${table.comment?trim}';
+</#list>
+

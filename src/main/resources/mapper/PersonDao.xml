@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.neu.yang.mapper.UserDao">
+    <select id="findAll" resultType="com.neu.yang.entity.Person">
+        select * from person
+    </select>
+    <select id="findNumber" resultType="int">
+        select count(*) from person
+    </select>
+    <update id="update" parameterType="com.neu.yang.entity.Update">
+        update person
+        <set>
+            <if test="cname!=null">cname=#{cname},</if>
+            <if test="date!=null">date=#{date},</if>
+            <if test="status!=null">status=#{status},</if>
+        </set>
+        where uid=#{uid}
+    </update>
+    <delete id="delete" parameterType="com.neu.yang.entity.Update">
+        delete from
+        person
+        where
+        uid=#{uid}
+    </delete>
+    <insert id="addPerson" parameterType="com.neu.yang.entity.Person">
+        insert into person(uid,date,cname,title,status,type,number,introduce,space) values(#{uid},#{date},#{cname},#{title},#{status},#{type},#{number},#{introduce},#{space})
+    </insert>
+
+    <select id="findKu" resultType="com.neu.yang.entity.Personku">
+        select p.uid,p.cname,p.title,p.number,p.date,c.num,c.price
+        from person p,kucun c
+        where p.uid=c.id
+    </select>
+
+</mapper>
