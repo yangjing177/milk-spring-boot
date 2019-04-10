@@ -4,10 +4,12 @@ import com.alibaba.fastjson.JSON;
 import com.neu.yang.model.JsonRootBean;
 import com.neu.yang.model.Table;
 import freemarker.template.Template;
-import org.mybatis.spring.annotation.MapperScan;
+
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import tk.mybatis.spring.annotation.MapperScan;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ import java.util.Map;
 @SpringBootApplication
 //@RestController
 ////
-@MapperScan("com.neu.yang.dao")
+@MapperScan("com.neu.yang.mapper")
 @ServletComponentScan
 public class YangApplication {
 

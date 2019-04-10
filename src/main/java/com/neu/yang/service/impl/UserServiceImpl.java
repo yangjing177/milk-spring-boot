@@ -1,7 +1,8 @@
-package com.neu.yang.service;
+package com.neu.yang.service.impl;
 
 import com.neu.yang.mapper.UserDao;
 import com.neu.yang.entity.*;
+import com.neu.yang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.Map;
 
 
 @Service(value = "userService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
