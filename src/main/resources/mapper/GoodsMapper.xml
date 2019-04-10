@@ -4,6 +4,7 @@
     <select id="screenGoods" parameterType="com.neu.yang.dto.Selected" resultType="com.neu.yang.model.Goods">
         select * from goods where
         is_delete=0
+        and parent_type=#{parentType}
         and brand=#{brand}
             <if test="type!=null and type!=''">and type=#{type}</if>
             <if test="packager!=null and packager!=''">and packager=#{packager}</if>
