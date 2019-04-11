@@ -4,4 +4,9 @@
     <select id="login" resultType="com.neu.yang.model.Users">
         select * from users where username=#{username} and password=#{password}
     </select>
+
+    <select id="findName" resultType="com.neu.yang.model.Users">
+        select * from users where username=#{username}
+    </select>
+
 </mapper>

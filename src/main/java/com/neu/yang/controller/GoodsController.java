@@ -21,4 +21,6 @@ public class GoodsController {
     public List<Goods> getList(@RequestBody Selected selected) {
         return goodsService.screenGoods(selected);
     }
+
+
 }
