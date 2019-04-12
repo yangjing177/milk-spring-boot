@@ -1,6 +1,7 @@
 package com.neu.yang.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import tk.mybatis.mapper.annotation.KeySql;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ public class Users{
 	@Id
 	// 主键
 	@Column(name = "id")
-	private String id;
+	private Integer id;
 
 	// 用户名
 	@Column(name = "username")
@@ -55,7 +56,7 @@ public class Users{
 	public Users() {
 	}
 
-	public Users(String id, String username, String password, String mobile, String adress, String member, Date createDate, Date updateDate, Object isDelete) {
+	public Users(Integer id, String username, String password, String mobile, String adress, String member, Date createDate, Date updateDate, Object isDelete) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -67,11 +68,11 @@ public class Users{
 		this.isDelete = isDelete;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

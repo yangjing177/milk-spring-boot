@@ -28,7 +28,6 @@ public class UserController {
     public Map<String, Object> login(@RequestParam String username) {
         return userService.info(username);
     }
-21
     @ResponseBody
     @GetMapping("/table")
     public Map<String, Object> getList() {
