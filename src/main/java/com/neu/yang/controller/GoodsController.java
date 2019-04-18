@@ -19,7 +19,8 @@ public class GoodsController {
     @ResponseBody
     @PostMapping("/list")
     public List<Goods> getList(@RequestBody Selected selected) {
-        return goodsService.screenGoods(selected);
+        List<Goods> list=goodsService.screenGoods(selected);
+        return list;
     }
 
 

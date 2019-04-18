@@ -6,9 +6,22 @@
         is_delete=0
         and parent_type=#{parentType}
         and brand=#{brand}
-            <if test="type!=null and type!=''">and type=#{type}</if>
-            <if test="packager!=null and packager!=''">and packager=#{packager}</if>
-            <if test="size!=null and size!=''">and size=#{size}</if>
+            <if test="type!=null and type!=''">
+                and type=#{type}
+            </if>
+            <if test="packager!=null and packager!=''">
+                and packager=#{packager}
+            </if>
+            <if test="size=='299'.toString()">
+                and <![CDATA[size<=#{size}]]>
+            </if>
+        <if test="size=='499'.toString()">
+            and <![CDATA[size<=#{size}]]>
+            and <![CDATA[size>299]]>
+        </if>
+        <if test="size=='500'.toString()">
+            and <![CDATA[size>=500]]>
+        </if>
     </select>
 
 </mapper>

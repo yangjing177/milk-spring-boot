@@ -1,8 +1,8 @@
 package com.neu.yang.service.impl;
 
 import com.neu.yang.dto.Selected;
-import com.neu.yang.model.Goods;
 import com.neu.yang.mapper.GoodsMapper;
+import com.neu.yang.model.Goods;
 import com.neu.yang.service.GoodsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,9 +58,24 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Goods> screenGoods(Selected selected) {
-        if(selected.getType().equals("不限")){selected.setType("");};
-        if(selected.getPackager().equals("不限")){selected.setPackager("");};
-        if(selected.getSize().equals("不限")){selected.setSize("");};
+        if(selected.getType().equals("不限")){
+            selected.setType("");
+        }
+        if(selected.getPackager().equals("不限")){
+            selected.setPackager("");
+        }
+        if(selected.getSize().equals("不限")){
+            selected.setSize("");
+        }
+        else if (selected.getSize().equals("小于299")){
+            selected.setSize("299");
+        }
+        else if (selected.getSize().equals("300至499")){
+            selected.setSize("499");
+        }
+        else if (selected.getSize().equals("大于500")){
+            selected.setSize("500");
+        }
         List<Goods> list=goodsMapper.screenGoods(selected);
         return list;
     }

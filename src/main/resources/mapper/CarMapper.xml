@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.neu.yang.mapper.CarMapper">
+    <resultMap id="BaseResultMap" type="com.neu.yang.model.Car">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+        <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+        <result column="price" property="price" jdbcType="VARCHAR" />
+        <result column="first_date" property="firstDate" jdbcType="VARCHAR" />
+        <result column="last_date" property="lastDate" jdbcType="VARCHAR" />
+        <result column="adress" property="adress" jdbcType="VARCHAR" />
+        <result column="number" property="number" jdbcType="VARCHAR" />
+        <result column="total" property="total" jdbcType="VARCHAR" />
+        <result column="total_price" property="totalPrice" jdbcType="VARCHAR" />
+        <result column="create_date" property="createDate" jdbcType="VARCHAR" />
+        <result column="update_date" property="updateDate" jdbcType="VARCHAR" />
+        <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="findCars" resultType="com.neu.yang.model.Car">
+        select
+        id id,
+        user_name userName,
+        goods_id goodsId,
+        goods_name goodsName,
+        price price,
+        first_date firstDate,
+        last_date lastDate,
+        adress adress,
+        number number,
+        total total,
+        total_price totalPrice,
+        create_date createDate,
+        update_date updateDate,
+        is_deleted isDeleted
+        from car
+        where is_deleted = 0
+        and user_name = #{user}
+    </select>
+
+    <select id="findName" resultType="com.neu.yang.model.Car">
+        select
+        id id,
+        user_name userName,
+        goods_id goodsId,
+        goods_name goodsName,
+        price price,
+        first_date firstDate,
+        last_date lastDate,
+        adress adress,
+        number number,
+        total total,
+        total_price totalPrice,
+        create_date createDate,
+        update_date updateDate,
+        is_deleted isDeleted
+        from car
+        where is_deleted = 0
+        and goods_name = #{goodsName}
+        and user_name = #{user}
+    </select>
+
+
+    <delete id="delAll" parameterType="String">
+        update car set is_deleted=1 where id in
+        <foreach collection="array" open="(" separator="," close=")" item="item">
+            #{item}
+        </foreach>
+    </delete>
+
+
+</mapper>
