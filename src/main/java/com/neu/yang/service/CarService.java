@@ -10,7 +10,7 @@ public interface CarService {
     List<Car> findAll();
     List<Car> findCars(String user);
     void update(Car car);
-    void insert(Car car);
+    List<Car> insert(Car car);
     void delAll(String[] ids);
     int findCarCount(String user);
 

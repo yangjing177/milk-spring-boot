@@ -2,10 +2,8 @@ package com.neu.yang.service.impl;
 
 import com.neu.yang.entity.Info;
 import com.neu.yang.entity.MyResult;
-import com.neu.yang.entity.User;
 import com.neu.yang.mapper.AdminMapper;
 import com.neu.yang.model.Admin;
-import com.neu.yang.model.Users;
 import com.neu.yang.service.AdminService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

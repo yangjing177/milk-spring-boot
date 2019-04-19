@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.neu.yang.mapper.AdressMapper">
+    <resultMap id="BaseResultMap" type="com.neu.yang.model.Adress">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="census" property="census" jdbcType="VARCHAR" />
+        <result column="adress" property="adress" jdbcType="VARCHAR" />
+        <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+        <result column="post_code" property="postCode" jdbcType="VARCHAR" />
+        <result column="default_adress" property="defaultAdress" jdbcType="VARCHAR" />
+        <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="findAdress" resultType="com.neu.yang.model.Adress">
+        select
+        id,
+        user_name userName,
+        census,
+        adress,
+        mobile,
+        post_code postCode,
+        default_adress defaultAdress,
+        is_deleted isDeleted
+        from adress
+        where is_deleted=0
+        and user_name=#{user}
+    </select>
+</mapper>

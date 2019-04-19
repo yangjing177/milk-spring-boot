@@ -19,7 +19,7 @@ public class Goods {
 
 	// 商品名
 	@Column(name = "goodsName")
-	private String goodsname;
+	private String goodsName;
 
 	// 价格
 	@Column(name = "price")
@@ -70,9 +70,9 @@ public class Goods {
 	public Goods() {
 	}
 
-	public Goods(Integer id, String goodsname, Float price, Integer number, String pic, String parenttype, String brand, String type, String packager, Integer size, Date createDate, Date updateDate, Object isDelete) {
+	public Goods(Integer id, String goodsName, Float price, Integer number, String pic, String parenttype, String brand, String type, String packager, Integer size, Date createDate, Date updateDate, Object isDelete) {
 		this.id = id;
-		this.goodsname = goodsname;
+		this.goodsName = goodsName;
 		this.price = price;
 		this.number = number;
 		this.pic = pic;
@@ -94,12 +94,12 @@ public class Goods {
 		this.id = id;
 	}
 
-	public String getGoodsname() {
-		return goodsname;
+	public String getGoodsName() {
+		return goodsName;
 	}
 
-	public void setGoodsname(String goodsname) {
-		this.goodsname = goodsname;
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
 	}
 
 	public Float getPrice() {

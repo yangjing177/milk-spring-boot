@@ -80,47 +80,56 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void insert(Car car) {
+    public List<Car> insert(Car car) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         List<Car> cars=carMapper.findName(car.getUserName(),car.getGoodsName());
         if(!CollectionUtils.isEmpty(cars)){
             car=cars.get(0);
-            int num=car.getNumber()+1;
+            int num=car.getNumber()+cars.get(0).getNumber();
+            if(num>10){
+                num=10;
+            }
             car.setNumber(num);
             int days=(int) ((car.getLastDate().getTime() - car.getFirstDate().getTime()) / (1000*3600*24))+1;
             int total=days*car.getNumber();
             float totalPrice=total*car.getPrice();
             car.setTotal(total);
             car.setTotalPrice(totalPrice);
+            car.setIsDeleted(0);
             carMapper.updateByPrimaryKey(car);
         }
         else {
-            //获取下个月第一天：
-            Calendar first = Calendar.getInstance();
-            first.add(Calendar.MONTH, 1);
-            first.set(Calendar.DAY_OF_MONTH, 1);//设置为1号,当前日期既为本月第一天
-            Date firstDate = first.getTime();
+            if(car.getFirstDate()==null) {
+                //获取下个月第一天：
+                Calendar first = Calendar.getInstance();
+                first.add(Calendar.MONTH, 1);
+                first.set(Calendar.DAY_OF_MONTH, 1);//设置为1号,当前日期既为本月第一天
+                Date firstDate = first.getTime();
 
-            //获取下个月最后一天
-            Calendar last = Calendar.getInstance();
-            last.add(Calendar.MONTH, 2);
-            last.set(Calendar.DATE, 0);
-            Date lastDate = last.getTime();
+                //获取下个月最后一天
+                Calendar last = Calendar.getInstance();
+                last.add(Calendar.MONTH, 2);
+                last.set(Calendar.DATE, 0);
+                Date lastDate = last.getTime();
 
-            car.setFirstDate(firstDate);
-            car.setLastDate(lastDate);
-            //赋予创建、修改时间
-            car.setCreateDate(new Date());
-            car.setUpdateDate(new Date());
+                car.setFirstDate(firstDate);
+                car.setLastDate(lastDate);
+            }
+                //赋予创建、修改时间
+                car.setCreateDate(new Date());
+                car.setUpdateDate(new Date());
+
 
             int days=(int) ((car.getLastDate().getTime() - car.getFirstDate().getTime()) / (1000*3600*24))+1;
             int total=days*car.getNumber();
             float totalPrice=total*car.getPrice();
             car.setTotal(total);
             car.setTotalPrice(totalPrice);
+            car.setIsDeleted(0);
             carMapper.insert(car);
         }
-
+        List<Car> list=carMapper.findCars(car.getUserName());
+        return list;
     }
 
     public int findCarCount(String user){

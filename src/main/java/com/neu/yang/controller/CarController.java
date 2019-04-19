@@ -4,10 +4,12 @@ import com.neu.yang.model.Car;
 import com.neu.yang.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/car")
@@ -44,8 +46,8 @@ public class CarController {
 
     @ResponseBody
     @PostMapping("/insert")
-    public void insert(@RequestBody Car car) {
-        carService.insert(car);
+    public List<Car> insert(@RequestBody Car car) {
+        return carService.insert(car);
     }
 
 }

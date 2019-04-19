@@ -64,7 +64,7 @@ public class MySqlUtil {
      * (列: 生成user表, appoint = {"user"})
      * 注: 名字与数据库名字一致
      */
-    private final String[] appoint = {"car"};
+    private final String[] appoint = {"adress"};
 
     // 时间转化格式(可自定义)
     private final String pattern = "yyyy-MM-dd HH:mm:ss";
