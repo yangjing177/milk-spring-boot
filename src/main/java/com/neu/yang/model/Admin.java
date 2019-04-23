@@ -36,19 +36,19 @@ public class Admin{
 	private Date updateDate;
 
 	// 是否删除（0：正常 1：删除）
-	@Column(name = "is_delete")
-	private Object isDelete;
+	@Column(name = "is_deleted")
+	private Integer isDeleted;
 
 	public Admin() {
 	}
 
-	public Admin(String id, String username, String password, Date createDate, Date updateDate, Object isDelete) {
+	public Admin(String id, String username, String password, Date createDate, Date updateDate, Integer isDeleted) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
-		this.isDelete = isDelete;
+		this.isDeleted = isDeleted;
 	}
 
 	public String getId() {
@@ -91,11 +91,11 @@ public class Admin{
 		this.updateDate = updateDate;
 	}
 
-	public Object getIsDelete() {
-		return isDelete;
+	public Integer getIsDeleted() {
+		return isDeleted;
 	}
 
-	public void setIsDelete(Object isDelete) {
-		this.isDelete = isDelete;
+	public void setIsDeleted(Integer isDeleted) {
+		this.isDeleted = isDeleted;
 	}
 }

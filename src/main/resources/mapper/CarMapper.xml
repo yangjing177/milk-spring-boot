@@ -6,16 +6,16 @@
         <result column="user_name" property="userName" jdbcType="VARCHAR" />
         <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
         <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
-        <result column="price" property="price" jdbcType="VARCHAR" />
-        <result column="first_date" property="firstDate" jdbcType="VARCHAR" />
-        <result column="last_date" property="lastDate" jdbcType="VARCHAR" />
+        <result column="price" property="price" jdbcType="FLOAT" />
+        <result column="first_date" property="firstDate" jdbcType="DATE" />
+        <result column="last_date" property="lastDate" jdbcType="DATE" />
         <result column="adress" property="adress" jdbcType="VARCHAR" />
-        <result column="number" property="number" jdbcType="VARCHAR" />
-        <result column="total" property="total" jdbcType="VARCHAR" />
-        <result column="total_price" property="totalPrice" jdbcType="VARCHAR" />
-        <result column="create_date" property="createDate" jdbcType="VARCHAR" />
-        <result column="update_date" property="updateDate" jdbcType="VARCHAR" />
-        <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+        <result column="number" property="number" jdbcType="INTEGER" />
+        <result column="total" property="total" jdbcType="INTEGER" />
+        <result column="total_price" property="totalPrice" jdbcType="FLOAT" />
+        <result column="create_date" property="createDate" jdbcType="DATE" />
+        <result column="update_date" property="updateDate" jdbcType="DATE" />
+        <result column="is_deleted" property="isDeleted" jdbcType="INTEGER" />
     </resultMap>
 
     <select id="findCars" resultType="com.neu.yang.model.Car">

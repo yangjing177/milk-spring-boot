@@ -1,26 +1,26 @@
 package com.neu.yang.service.impl;
 
-import com.neu.yang.service.AdressService;
+import com.neu.yang.service.AddressService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.List;
 
-import com.neu.yang.model.Adress;
-import com.neu.yang.mapper.AdressMapper;
+import com.neu.yang.model.Address;
+import com.neu.yang.mapper.AddressMapper;
 
 @Service
 @Transactional
-public class AdressServiceImpl implements AdressService {
+public class AddressServiceImpl implements AddressService {
 
     @Resource
-    private AdressMapper adressMapper;
+    private AddressMapper adressMapper;
 
     /**
      * 添加
      * @param adress
      */
-    public void save(Adress adress){
+    public void save(Address adress){
         adressMapper.insert(adress);
     }
 
@@ -34,29 +34,29 @@ public class AdressServiceImpl implements AdressService {
 
     /**
      * 修改
-     * @param adress
+     * @param address
      */
-    public void update(Adress adress){
-        adressMapper.updateByPrimaryKey(adress);
+    public void update(Address address){
+        adressMapper.updateByPrimaryKey(address);
     }
 
     /**
      * 查询所有
      * @return
      */
-    public List<Adress> findAll(){
+    public List<Address> findAll(){
         return adressMapper.selectAll();
     }
     /**
      * 查询
      * @return
      */
-    public Adress findById(Integer id){
+    public Address findById(Integer id){
         return adressMapper.selectByPrimaryKey(id);
     }
 
-    public List<Adress> findAdress(String user){
-        List<Adress> list=adressMapper.findAdress(user);
+    public List<Address> findAddress(String user){
+        List<Address> list=adressMapper.findAddress(user);
         return list;
     }
 }

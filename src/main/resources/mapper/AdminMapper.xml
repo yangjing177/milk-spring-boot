@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.neu.yang.mapper.AdminMapper">
     <select id="login" resultType="com.neu.yang.model.Admin">
-        select * from admin where username=#{username} and password=#{password}
+        select * from admin where username=#{username} and password=#{password} and is
     </select>
     <select id="findUname" resultType="com.neu.yang.model.Admin">
         select * from admin where username=#{username}

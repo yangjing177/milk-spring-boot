@@ -76,12 +76,12 @@ public class Car{
 
 	// 是否删除（0：正常 1：删除）
 	@Column(name = "is_deleted")
-	private Object isDeleted;
+	private Integer isDeleted;
 
 	public Car() {
 	}
 
-	public Car(Integer id, String userName, Integer goodsId, String goodsName, Float price, Date firstDate, Date lastDate, String adress, Integer number, Integer total, Float totalPrice, Date createDate, Date updateDate, Object isDeleted) {
+	public Car(Integer id, String userName, Integer goodsId, String goodsName, Float price, Date firstDate, Date lastDate, String adress, Integer number, Integer total, Float totalPrice, Date createDate, Date updateDate, Integer isDeleted) {
 		this.id = id;
 		this.userName = userName;
 		this.goodsId = goodsId;
@@ -202,11 +202,11 @@ public class Car{
 		this.updateDate = updateDate;
 	}
 
-	public Object getIsDeleted() {
+	public Integer getIsDeleted() {
 		return isDeleted;
 	}
 
-	public void setIsDeleted(Object isDeleted) {
+	public void setIsDeleted(Integer isDeleted) {
 		this.isDeleted = isDeleted;
 	}
 }

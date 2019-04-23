@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.neu.yang.mapper.GoodsMapper">
-    <select id="screenGoods" parameterType="com.neu.yang.dto.Selected" resultType="com.neu.yang.model.Goods">
+    <resultMap id="BaseResultMap" type="com.neu.yang.model.Goods">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+        <result column="price" property="price" jdbcType="FLOAT" />
+        <result column="number" property="number" jdbcType="INTEGER" />
+        <result column="pic" property="pic" jdbcType="VARCHAR" />
+        <result column="parent_type" property="parentType" jdbcType="VARCHAR" />
+        <result column="brand" property="brand" jdbcType="VARCHAR" />
+        <result column="type" property="type" jdbcType="VARCHAR" />
+        <result column="packager" property="packager" jdbcType="VARCHAR" />
+        <result column="size" property="size" jdbcType="INTEGER" />
+        <result column="create_date" property="createDate" jdbcType="DATE" />
+        <result column="update_date" property="updateDate" jdbcType="DATE" />
+        <result column="is_deleted" property="isDeleted" jdbcType="TINYINT" />
+    </resultMap>
+
+    <select id="screenGoods" parameterType="com.neu.yang.dto.Selected" resultMap="BaseResultMap">
         select * from goods where
         is_delete=0
         and parent_type=#{parentType}

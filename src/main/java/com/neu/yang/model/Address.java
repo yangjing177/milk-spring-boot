@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "adress")
-public class Adress{
+@Table(name = "address")
+public class Address {
 
 	@Id
 	// id
@@ -23,8 +23,8 @@ public class Adress{
 	private String census;
 
 	// 详细地址
-	@Column(name = "adress")
-	private String adress;
+	@Column(name = "address")
+	private String address;
 
 	// 手机号
 	@Column(name = "mobile")
@@ -35,24 +35,24 @@ public class Adress{
 	private String postCode;
 
 	// 是否为默认（0：默认 1：其他）
-	@Column(name = "default_adress")
-	private Object defaultAdress;
+	@Column(name = "default_address")
+	private Integer defaultAddress;
 
 	// 是否删除（0：正常 1：删除）
 	@Column(name = "is_deleted")
-	private Object isDeleted;
+	private Integer isDeleted;
 
-	public Adress() {
+	public Address() {
 	}
 
-	public Adress(Integer id, String userName, String census, String adress, String mobile, String postCode, Object defaultAdress, Object isDeleted) {
+	public Address(Integer id, String userName, String census, String address, String mobile, String postCode, Integer defaultAddress, Integer isDeleted) {
 		this.id = id;
 		this.userName = userName;
 		this.census = census;
-		this.adress = adress;
+		this.address = address;
 		this.mobile = mobile;
 		this.postCode = postCode;
-		this.defaultAdress = defaultAdress;
+		this.defaultAddress = defaultAddress;
 		this.isDeleted = isDeleted;
 	}
 
@@ -80,12 +80,12 @@ public class Adress{
 		this.census = census;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getMobile() {
@@ -104,19 +104,19 @@ public class Adress{
 		this.postCode = postCode;
 	}
 
-	public Object getDefaultAdress() {
-		return defaultAdress;
+	public Integer getDefaultAddress() {
+		return defaultAddress;
 	}
 
-	public void setDefaultAdress(Object defaultAdress) {
-		this.defaultAdress = defaultAdress;
+	public void setDefaultAddress(Integer defaultAddress) {
+		this.defaultAddress = defaultAddress;
 	}
 
-	public Object getIsDeleted() {
+	public Integer getIsDeleted() {
 		return isDeleted;
 	}
 
-	public void setIsDeleted(Object isDeleted) {
+	public void setIsDeleted(Integer isDeleted) {
 		this.isDeleted = isDeleted;
 	}
 }

@@ -18,7 +18,7 @@ public class Goods {
 	private Integer id;
 
 	// 商品名
-	@Column(name = "goodsName")
+	@Column(name = "goods_name")
 	private String goodsName;
 
 	// 价格
@@ -34,8 +34,8 @@ public class Goods {
 	private String pic;
 
 	// 父级分类
-	@Column(name = "parentType")
-	private String parenttype;
+	@Column(name = "parent_type")
+	private String parentType;
 
 	// 品牌
 	@Column(name = "brand")
@@ -64,26 +64,26 @@ public class Goods {
 	private Date updateDate;
 
 	// 是否删除（0：正常 1：删除）
-	@Column(name = "is_delete")
-	private Object isDelete;
+	@Column(name = "is_deleted")
+	private Integer isDeleted;
 
 	public Goods() {
 	}
 
-	public Goods(Integer id, String goodsName, Float price, Integer number, String pic, String parenttype, String brand, String type, String packager, Integer size, Date createDate, Date updateDate, Object isDelete) {
+	public Goods(Integer id, String goodsName, Float price, Integer number, String pic, String parentType, String brand, String type, String packager, Integer size, Date createDate, Date updateDate, Integer isDeleted) {
 		this.id = id;
 		this.goodsName = goodsName;
 		this.price = price;
 		this.number = number;
 		this.pic = pic;
-		this.parenttype = parenttype;
+		this.parentType = parentType;
 		this.brand = brand;
 		this.type = type;
 		this.packager = packager;
 		this.size = size;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
-		this.isDelete = isDelete;
+		this.isDeleted = isDeleted;
 	}
 
 	public Integer getId() {
@@ -126,12 +126,12 @@ public class Goods {
 		this.pic = pic;
 	}
 
-	public String getParenttype() {
-		return parenttype;
+	public String getParentType() {
+		return parentType;
 	}
 
-	public void setParenttype(String parenttype) {
-		this.parenttype = parenttype;
+	public void setParentType(String parentType) {
+		this.parentType = parentType;
 	}
 
 	public String getBrand() {
@@ -182,11 +182,11 @@ public class Goods {
 		this.updateDate = updateDate;
 	}
 
-	public Object getIsDelete() {
-		return isDelete;
+	public Integer getIsDeleted() {
+		return isDeleted;
 	}
 
-	public void setIsDelete(Object isDelete) {
-		this.isDelete = isDelete;
+	public void setIsDeleted(Integer isDeleted) {
+		this.isDeleted = isDeleted;
 	}
 }

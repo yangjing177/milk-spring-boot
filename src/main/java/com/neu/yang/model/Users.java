@@ -51,12 +51,12 @@ public class Users{
 
 	// 是否删除（0：未删除，1：已删除）
 	@Column(name = "is_delete")
-	private Object isDelete;
+	private Integer isDelete;
 
 	public Users() {
 	}
 
-	public Users(Integer id, String username, String password, String mobile, String adress, String member, Date createDate, Date updateDate, Object isDelete) {
+	public Users(Integer id, String username, String password, String mobile, String adress, String member, Date createDate, Date updateDate, Integer isDelete) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -132,11 +132,11 @@ public class Users{
 		this.updateDate = updateDate;
 	}
 
-	public Object getIsDelete() {
+	public Integer getIsDelete() {
 		return isDelete;
 	}
 
-	public void setIsDelete(Object isDelete) {
+	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
 	}
 }
