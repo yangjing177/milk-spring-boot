@@ -84,11 +84,11 @@ public class CarServiceImpl implements CarService {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         List<Car> cars=carMapper.findName(car.getUserName(),car.getGoodsName());
         if(!CollectionUtils.isEmpty(cars)){
-            car=cars.get(0);
             int num=car.getNumber()+cars.get(0).getNumber();
             if(num>10){
                 num=10;
             }
+            car=cars.get(0);
             car.setNumber(num);
             int days=(int) ((car.getLastDate().getTime() - car.getFirstDate().getTime()) / (1000*3600*24))+1;
             int total=days*car.getNumber();
@@ -128,7 +128,7 @@ public class CarServiceImpl implements CarService {
             car.setIsDeleted(0);
             carMapper.insert(car);
         }
-        List<Car> list=carMapper.findCars(car.getUserName());
+        List<Car> list=carMapper.findName(car.getUserName(),car.getGoodsName());
         return list;
     }
 
