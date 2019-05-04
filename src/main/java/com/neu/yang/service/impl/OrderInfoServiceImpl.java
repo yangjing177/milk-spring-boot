@@ -1,9 +1,12 @@
 package com.neu.yang.service.impl;
 
 import com.neu.yang.service.OrderInfoService;
+import com.neu.yang.util.OrderNumber;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 import com.neu.yang.model.OrderInfo;
@@ -15,6 +18,7 @@ public class OrderInfoServiceImpl implements OrderInfoService {
 
     @Resource
     private OrderInfoMapper orderinfoMapper;
+
 
     /**
      * 添加
@@ -53,5 +57,22 @@ public class OrderInfoServiceImpl implements OrderInfoService {
      */
     public OrderInfo findById(Integer id){
         return orderinfoMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public String insertOrderInfo(OrderInfo orderInfo) {
+        OrderNumber orderNumber=new OrderNumber();
+        String orderNum=orderNumber.getOrderNo();
+        orderInfo.setOrderNumber(orderNum);
+        orderInfo.setCreateDate(new Date());
+        orderInfo.setUpdateDate(new Date());
+        int num= orderinfoMapper.insert(orderInfo);
+        return orderNum;
+    }
+
+    @Override
+    public List<OrderInfo> findOrderInfo(String orderStatus,String user){
+        List<OrderInfo> list=orderinfoMapper.findOrderInfo(orderStatus,user);
+        return list;
     }
 }

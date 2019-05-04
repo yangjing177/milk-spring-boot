@@ -20,7 +20,7 @@ public class OrderNumber extends Thread{
      * 生成订单编号
      * @return
      */
-    public static synchronized String getOrderNo() {
+    public String getOrderNo() {
         String str = new SimpleDateFormat("yyMMddHHmmSS").format(new Date());
         if(date==null||!date.equals(str)){
             date = str;

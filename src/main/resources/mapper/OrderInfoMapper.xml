@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.neu.yang.mapper.OrderInfoMapper">
+
+    <select id="findOrderInfo" resultType="com.neu.yang.model.OrderInfo">
+        select
+        id id,
+        order_number orderNumber,
+        item_count itemCount,
+        user_id userId,
+        user_name userName,
+        box,
+        total_price totalPrice,
+        order_status orderStatus,
+        create_date createDate,
+        update_date updateDate,
+        is_deleted isDeleted
+        from order_info
+        where is_deleted = 0
+        and user_name = #{user}
+        and order_status = #{orderStatus}
+    </select>
+
+
+
+
+</mapper>

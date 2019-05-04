@@ -1,5 +1,6 @@
 package com.neu.yang.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
@@ -19,7 +20,7 @@ public class OrderInfo{
 
 	// 订单号
 	@Column(name = "order_number")
-	private Integer orderNumber;
+	private String orderNumber;
 
 	// 商品项数量
 	@Column(name = "item_count")
@@ -27,7 +28,7 @@ public class OrderInfo{
 
 	// 用户名
 	@Column(name = "user_name")
-	private Integer userName;
+	private String userName;
 
 	// 是否需要奶箱（0：需要 1：不需要）
 	@Column(name = "box")
@@ -39,16 +40,18 @@ public class OrderInfo{
 
 	// 订单状态
 	@Column(name = "order_status")
-	private String orderStatus;
+	private Integer orderStatus;
 
 	// 创建时间
 	@Column(name = "create_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date createDate;
 
 	// 更新时间
 	@Column(name = "update_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date updateDate;
 
 	// 是否删除（0：正常 1：删除）
@@ -58,7 +61,7 @@ public class OrderInfo{
 	public OrderInfo() {
 	}
 
-	public OrderInfo(Integer id, Integer orderNumber, Integer itemCount, Integer userName, Integer box, Float totalPrice, String orderStatus, Date createDate, Date updateDate, Integer isDeleted) {
+	public OrderInfo(Integer id, String orderNumber, Integer itemCount, String userName, Integer box, Float totalPrice, Integer orderStatus, Date createDate, Date updateDate, Integer isDeleted) {
 		this.id = id;
 		this.orderNumber = orderNumber;
 		this.itemCount = itemCount;
@@ -79,11 +82,11 @@ public class OrderInfo{
 		this.id = id;
 	}
 
-	public Integer getOrderNumber() {
+	public String getOrderNumber() {
 		return orderNumber;
 	}
 
-	public void setOrderNumber(Integer orderNumber) {
+	public void setOrderNumber(String orderNumber) {
 		this.orderNumber = orderNumber;
 	}
 
@@ -95,11 +98,11 @@ public class OrderInfo{
 		this.itemCount = itemCount;
 	}
 
-	public Integer getUserName() {
+	public String getUserName() {
 		return userName;
 	}
 
-	public void setUserName(Integer userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
@@ -119,11 +122,11 @@ public class OrderInfo{
 		this.totalPrice = totalPrice;
 	}
 
-	public String getOrderStatus() {
+	public Integer getOrderStatus() {
 		return orderStatus;
 	}
 
-	public void setOrderStatus(String orderStatus) {
+	public void setOrderStatus(Integer orderStatus) {
 		this.orderStatus = orderStatus;
 	}
 

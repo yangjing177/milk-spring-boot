@@ -1,5 +1,6 @@
 package com.neu.yang.service.impl;
 
+import com.neu.yang.model.Car;
 import com.neu.yang.service.OrderProductService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,5 +54,24 @@ public class OrderProductServiceImpl implements OrderProductService {
      */
     public OrderProduct findById(Integer id){
         return orderproductMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int insertOrderProduct(String orderNum, List<Car> cars) {
+        OrderProduct orderProduct=new OrderProduct();
+         for(int i=0;i<cars.size();i++){
+           orderProduct.setOrderNumber(orderNum);
+           orderProduct.setGoodsId(cars.get(0).getGoodsId());
+           orderProduct.setGoodsName(cars.get(0).getGoodsName());
+           orderProduct.setPrice(cars.get(0).getPrice());
+           orderProduct.setFirstDate(cars.get(0).getFirstDate());
+           orderProduct.setLastDate(cars.get(0).getLastDate());
+           orderProduct.setNumber(cars.get(0).getNumber());
+           orderProduct.setTotal(cars.get(0).getTotal());
+           orderProduct.setTotalPrice(cars.get(0).getTotalPrice());
+           orderProduct.setIsDeleted(0);
+           orderproductMapper.insert(orderProduct);
+         }
+         return 1;
     }
 }

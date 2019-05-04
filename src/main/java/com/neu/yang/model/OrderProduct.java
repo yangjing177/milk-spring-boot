@@ -19,7 +19,11 @@ public class OrderProduct{
 
 	// 订单编号
 	@Column(name = "order_number")
-	private Integer orderNumber;
+	private String orderNumber;
+
+	// 商品id
+	@Column(name = "goods_id")
+	private Integer goodsId;
 
 	// 商品名
 	@Column(name = "goods_name")
@@ -58,9 +62,10 @@ public class OrderProduct{
 	public OrderProduct() {
 	}
 
-	public OrderProduct(Integer id, Integer orderNumber, String goodsName, Float price, Date firstDate, Date lastDate, Integer number, Integer total, Float totalPrice, Integer isDeleted) {
+	public OrderProduct(Integer id, String orderNumber, Integer goodsId, String goodsName, Float price, Date firstDate, Date lastDate, Integer number, Integer total, Float totalPrice, Integer isDeleted) {
 		this.id = id;
 		this.orderNumber = orderNumber;
+		this.goodsId = goodsId;
 		this.goodsName = goodsName;
 		this.price = price;
 		this.firstDate = firstDate;
@@ -79,12 +84,20 @@ public class OrderProduct{
 		this.id = id;
 	}
 
-	public Integer getOrderNumber() {
+	public String getOrderNumber() {
 		return orderNumber;
 	}
 
-	public void setOrderNumber(Integer orderNumber) {
+	public void setOrderNumber(String orderNumber) {
 		this.orderNumber = orderNumber;
+	}
+
+	public Integer getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(Integer goodsId) {
+		this.goodsId = goodsId;
 	}
 
 	public String getGoodsName() {
