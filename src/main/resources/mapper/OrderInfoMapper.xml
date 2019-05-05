@@ -21,6 +21,24 @@
         and order_status = #{orderStatus}
     </select>
 
+    <select id="findAll" resultType="com.neu.yang.model.OrderInfo">
+        select
+        id id,
+        order_number orderNumber,
+        item_count itemCount,
+        user_id userId,
+        user_name userName,
+        box,
+        total_price totalPrice,
+        order_status orderStatus,
+        create_date createDate,
+        update_date updateDate,
+        is_deleted isDeleted
+        from order_info where
+        is_deleted=0
+        <!--and order_status='30'-->
+    </select>
+
 
 
 

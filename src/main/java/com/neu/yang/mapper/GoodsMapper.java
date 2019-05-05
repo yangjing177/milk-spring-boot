@@ -9,4 +9,5 @@ import java.util.List;
 @org.apache.ibatis.annotations.Mapper
 public interface GoodsMapper extends Mapper<Goods> {
     List<Goods> screenGoods(Selected selected);
+    List<Goods> findAll();
 }

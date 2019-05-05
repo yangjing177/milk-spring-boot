@@ -28,6 +28,7 @@ public class UserController {
     public Map<String, Object> login(@RequestParam String username) {
         return userService.info(username);
     }
+
     @ResponseBody
     @GetMapping("/table")
     public Map<String, Object> getList() {

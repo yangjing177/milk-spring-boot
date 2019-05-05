@@ -1,5 +1,6 @@
 package com.neu.yang.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
@@ -28,11 +29,13 @@ public class Admin{
 	// 创建时间
 	@Column(name = "create_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date createDate;
 
 	// 更新时间
 	@Column(name = "update_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date updateDate;
 
 	// 是否删除（0：正常 1：删除）

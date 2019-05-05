@@ -1,5 +1,6 @@
 package com.neu.yang.service.impl;
 
+import com.neu.yang.model.Goods;
 import com.neu.yang.service.OrderInfoService;
 import com.neu.yang.util.OrderNumber;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.neu.yang.model.OrderInfo;
 import com.neu.yang.mapper.OrderInfoMapper;
@@ -48,9 +51,9 @@ public class OrderInfoServiceImpl implements OrderInfoService {
      * 查询所有
      * @return
      */
-    public List<OrderInfo> findAll(){
-        return orderinfoMapper.selectAll();
-    }
+//    public List<OrderInfo> findAll(){
+//        return orderinfoMapper.selectAll();
+//    }
     /**
      * 查询
      * @return
@@ -74,5 +77,17 @@ public class OrderInfoServiceImpl implements OrderInfoService {
     public List<OrderInfo> findOrderInfo(String orderStatus,String user){
         List<OrderInfo> list=orderinfoMapper.findOrderInfo(orderStatus,user);
         return list;
+    }
+
+    @Override
+    public Map<String, Object> findAll() {
+        List<OrderInfo> list=orderinfoMapper.findAll();
+        Map<String,Object> map=new HashMap<>();
+        int totalRow=list.size();
+        int code=20000;
+        map.put("code",code);
+        map.put("data",list);
+        map.put("totalRow",totalRow);
+        return map;
     }
 }

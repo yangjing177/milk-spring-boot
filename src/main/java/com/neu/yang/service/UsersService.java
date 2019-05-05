@@ -7,4 +7,6 @@ import java.util.Map;
 public interface UsersService {
     Map<String, Object> login(String username, String password);
     Map<String,Object> register(Users users);
+    Map<String, Object> findAll();
+    void update(Users users);
 }

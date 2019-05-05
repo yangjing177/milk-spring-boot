@@ -2,6 +2,7 @@ package com.neu.yang.service.impl;
 
 import com.neu.yang.entity.MyResult;
 import com.neu.yang.entity.User;
+import com.neu.yang.model.Goods;
 import com.neu.yang.model.Users;
 import com.neu.yang.mapper.UsersMapper;
 import com.neu.yang.service.UsersService;
@@ -48,9 +49,9 @@ public class UsersServiceImpl implements UsersService {
      * 查询所有
      * @return
      */
-    public List<Users> findAll(){
-        return usersMapper.selectAll();
-    }
+//    public List<Users> findAll(){
+//        return usersMapper.selectAll();
+//    }
     /**
      * 查询
      * @return
@@ -89,12 +90,24 @@ public class UsersServiceImpl implements UsersService {
             message="用户名已存在";
         }
         else{
-            users.setIsDelete(0);
+            users.setIsDeleted(0);
             usersMapper.insert(users);
             message="注册成功";
         }
         Map<String,Object> map=new HashMap<>();
         map.put("data",message);
+        return map;
+    }
+
+    @Override
+    public Map<String, Object> findAll() {
+        List<Users> list=usersMapper.findAll();
+        Map<String,Object> map=new HashMap<>();
+        int totalRow=list.size();
+        int code=20000;
+        map.put("code",code);
+        map.put("data",list);
+        map.put("totalRow",totalRow);
         return map;
     }
 }

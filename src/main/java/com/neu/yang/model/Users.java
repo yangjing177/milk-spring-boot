@@ -1,5 +1,6 @@
 package com.neu.yang.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 import tk.mybatis.mapper.annotation.KeySql;
 
@@ -31,41 +32,48 @@ public class Users{
 	@Column(name = "mobile")
 	private String mobile;
 
-	// 地址
-	@Column(name = "adress")
-	private String adress;
+	// 真是姓名
+	@Column(name = "name")
+	private String name;
 
-	// 会员等级
-	@Column(name = "member")
-	private String member;
+	// 性别
+	@Column(name = "sex")
+	private String sex;
+
+	// 邮箱
+	@Column(name = "email")
+	private String email;
 
 	// 创建时间
 	@Column(name = "create_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date createDate;
 
 	// 修改时间
 	@Column(name = "update_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date updateDate;
 
 	// 是否删除（0：未删除，1：已删除）
-	@Column(name = "is_delete")
-	private Integer isDelete;
+	@Column(name = "is_deleted")
+	private Integer isDeleted;
 
 	public Users() {
 	}
 
-	public Users(Integer id, String username, String password, String mobile, String adress, String member, Date createDate, Date updateDate, Integer isDelete) {
+	public Users(Integer id, String username, String password, String mobile, String name, String sex, String email, Date createDate, Date updateDate, Integer isDeleted) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.mobile = mobile;
-		this.adress = adress;
-		this.member = member;
+		this.name = name;
+		this.sex = sex;
+		this.email = email;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
-		this.isDelete = isDelete;
+		this.isDeleted = isDeleted;
 	}
 
 	public Integer getId() {
@@ -100,20 +108,28 @@ public class Users{
 		this.mobile = mobile;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getName() {
+		return name;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getMember() {
-		return member;
+	public String getSex() {
+		return sex;
 	}
 
-	public void setMember(String member) {
-		this.member = member;
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Date getCreateDate() {
@@ -132,11 +148,11 @@ public class Users{
 		this.updateDate = updateDate;
 	}
 
-	public Integer getIsDelete() {
-		return isDelete;
+	public Integer getIsDeleted() {
+		return isDeleted;
 	}
 
-	public void setIsDelete(Integer isDelete) {
-		this.isDelete = isDelete;
+	public void setIsDeleted(Integer isDeleted) {
+		this.isDeleted = isDeleted;
 	}
 }

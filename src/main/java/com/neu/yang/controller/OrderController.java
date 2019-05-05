@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/order")
@@ -49,4 +50,24 @@ public class OrderController {
         orderInfoService.update(orderInfo);
     }
 
+    @ResponseBody
+    @GetMapping("/table")
+    public Map<String, Object> getList() {
+        return orderInfoService.findAll();
+    }
+
+    @ResponseBody
+    @PostMapping("update")
+    public Map<String, Object> update(@RequestBody OrderInfo orderInfo) {
+        orderInfoService.update(orderInfo);
+        return orderInfoService.findAll();
+    }
+
+    @ResponseBody
+    @PostMapping("delete")
+    public Map<String, Object> delete(@RequestBody OrderInfo orderInfo) {
+        orderInfo.setIsDeleted(1);
+        orderInfoService.update(orderInfo);
+        return orderInfoService.findAll();
+    }
 }

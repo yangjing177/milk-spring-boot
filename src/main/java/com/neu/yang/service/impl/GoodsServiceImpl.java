@@ -1,6 +1,7 @@
 package com.neu.yang.service.impl;
 
 import com.neu.yang.dto.Selected;
+import com.neu.yang.entity.Person;
 import com.neu.yang.mapper.GoodsMapper;
 import com.neu.yang.model.Goods;
 import com.neu.yang.service.GoodsService;
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -45,9 +48,9 @@ public class GoodsServiceImpl implements GoodsService {
      * 查询所有
      * @return
      */
-    public List<Goods> findAll(){
-        return goodsMapper.selectAll();
-    }
+//    public List<Goods> findAll(){
+//        return goodsMapper.selectAll();
+//    }
     /**
      * 查询
      * @return
@@ -78,5 +81,17 @@ public class GoodsServiceImpl implements GoodsService {
         }
         List<Goods> list=goodsMapper.screenGoods(selected);
         return list;
+    }
+
+    @Override
+    public Map<String, Object> findAll() {
+        List<Goods> list=goodsMapper.findAll();
+        Map<String,Object> map=new HashMap<>();
+        int totalRow=list.size();
+        int code=20000;
+        map.put("code",code);
+        map.put("data",list);
+        map.put("totalRow",totalRow);
+        return map;
     }
 }
