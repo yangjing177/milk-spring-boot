@@ -8,6 +8,7 @@
         <result column="mobile" property="mobile" jdbcType="VARCHAR" />
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="sex" property="sex" jdbcType="VARCHAR" />
+        <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
         <result column="email" property="email" jdbcType="VARCHAR" />
         <result column="create_date" property="createDate" jdbcType="DATE" />
         <result column="update_date" property="updateDate" jdbcType="DATE" />

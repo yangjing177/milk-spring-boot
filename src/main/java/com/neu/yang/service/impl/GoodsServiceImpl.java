@@ -61,6 +61,9 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Goods> screenGoods(Selected selected) {
+        if(selected.getGoodsName()==null){
+            selected.setType("");
+        }
         if(selected.getType().equals("不限")){
             selected.setType("");
         }

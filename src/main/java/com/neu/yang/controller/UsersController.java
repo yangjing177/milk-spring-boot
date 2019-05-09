@@ -1,7 +1,6 @@
 package com.neu.yang.controller;
 
 import com.neu.yang.entity.Info;
-import com.neu.yang.model.Goods;
 import com.neu.yang.model.Users;
 import com.neu.yang.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,5 +69,19 @@ public class UsersController {
         users.setIsDeleted(1);
         usersService.update(users);
         return usersService.findAll();
+    }
+
+    @ResponseBody
+    @PostMapping("/findByUsername")
+    public Users findByUsername(@RequestBody String user) {
+        Users list=usersService.findUser(user);
+        return list;
+    }
+
+    @ResponseBody
+    @PostMapping("updateUser")
+    public Users updateUser(@RequestBody Users users) {
+        usersService.update(users);
+        return usersService.findUser(users.getUsername());
     }
 }

@@ -45,6 +45,11 @@ public class UsersServiceImpl implements UsersService {
         usersMapper.updateByPrimaryKey(users);
     }
 
+    @Override
+    public Users findUser(String user) {
+        return usersMapper.findName(user);
+    }
+
     /**
      * 查询所有
      * @return

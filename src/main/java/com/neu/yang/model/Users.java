@@ -40,6 +40,10 @@ public class Users{
 	@Column(name = "sex")
 	private String sex;
 
+	// 性别
+	@Column(name = "id_number")
+	private String idNumber;
+
 	// 邮箱
 	@Column(name = "email")
 	private String email;
@@ -63,13 +67,14 @@ public class Users{
 	public Users() {
 	}
 
-	public Users(Integer id, String username, String password, String mobile, String name, String sex, String email, Date createDate, Date updateDate, Integer isDeleted) {
+	public Users(Integer id, String username, String password, String mobile, String name, String sex, String idNumber, String email, Date createDate, Date updateDate, Integer isDeleted) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.mobile = mobile;
 		this.name = name;
 		this.sex = sex;
+		this.idNumber = idNumber;
 		this.email = email;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
@@ -122,6 +127,14 @@ public class Users{
 
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 
 	public String getEmail() {

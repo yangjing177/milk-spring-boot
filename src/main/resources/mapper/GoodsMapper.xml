@@ -22,6 +22,9 @@
         is_deleted=0
         and parent_type=#{parentType}
         and brand=#{brand}
+            <if test="goodsName!=null and type!=''">
+                and goods_name like "%"#{goodsName,jdbcType=VARCHAR}"%"
+            </if>
             <if test="type!=null and type!=''">
                 and type=#{type}
             </if>

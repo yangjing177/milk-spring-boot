@@ -1,6 +1,7 @@
 package com.neu.yang.dto;
 
 public class Selected {
+    private String goodsName;
     private String parentType;
     private String brand;
     private String type;
@@ -10,12 +11,21 @@ public class Selected {
     public Selected() {
     }
 
-    public Selected(String parentType, String brand, String type, String packager, String size) {
+    public Selected(String goodsName, String parentType, String brand, String type, String packager, String size) {
+        this.goodsName = goodsName;
         this.parentType = parentType;
         this.brand = brand;
         this.type = type;
         this.packager = packager;
         this.size = size;
+    }
+
+    public String getGoodsName() {
+        return goodsName;
+    }
+
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
     }
 
     public String getParentType() {
