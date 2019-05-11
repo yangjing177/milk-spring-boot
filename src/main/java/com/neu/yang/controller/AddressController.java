@@ -37,4 +37,18 @@ public class AddressController {
             }
         }
     }
+
+    @ResponseBody
+    @PostMapping("/insert")
+    public void insert(@RequestBody Address address) {
+        address.setIsDeleted(0);
+        addressService.save(address);
+        List<Address> list = addressService.findAddress(address.getUserName());
+        for(Address addr:list){
+            if(addr.getDefaultAddress()==0&&address.getId()!=addr.getId()){
+                addr.setDefaultAddress(1);
+                addressService.update(addr);
+            }
+        }
+    }
 }

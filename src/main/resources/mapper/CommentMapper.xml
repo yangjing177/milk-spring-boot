@@ -5,6 +5,7 @@
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="user_id" property="userId" jdbcType="INTEGER" />
         <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
         <result column="comment" property="comment" jdbcType="VARCHAR" />
         <result column="evaluate" property="evaluate" jdbcType="INTEGER" />
         <result column="comment_status" property="commentStatus" jdbcType="VARCHAR" />
@@ -21,8 +22,18 @@
         select * from comment where
         is_deleted=0
         and user_name=#{userName}
+        and goods_id=#{goodsId}
         <if test="evaluate!=0">
             and evaluate=#{evaluate}
+        </if>
+        <if test="evaluate==1">
+            and evaluate in (4,5)
+        </if>
+        <if test="evaluate==2">
+            and evaluate = 3
+        </if>
+        <if test="evaluate==3">
+            and evaluate in (1,2)
         </if>
     </select>
 

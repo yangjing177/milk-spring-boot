@@ -2,13 +2,15 @@ package com.neu.yang.dto;
 
 public class CommentSelected {
     private String userName;
+    private Integer goodsId;
     private Integer evaluate;
 
     public CommentSelected() {
     }
 
-    public CommentSelected(String userName, Integer evaluate) {
+    public CommentSelected(String userName, Integer goodsId, Integer evaluate) {
         this.userName = userName;
+        this.goodsId = goodsId;
         this.evaluate = evaluate;
     }
 
@@ -18,6 +20,14 @@ public class CommentSelected {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public Integer getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
     public Integer getEvaluate() {

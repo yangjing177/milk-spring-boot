@@ -100,7 +100,7 @@ public class UsersServiceImpl implements UsersService {
             message="注册成功";
         }
         Map<String,Object> map=new HashMap<>();
-        map.put("data",message);
+        map.put("message",message);
         return map;
     }
 

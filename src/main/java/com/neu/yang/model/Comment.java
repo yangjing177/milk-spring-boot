@@ -26,6 +26,10 @@ public class Comment{
 	@Column(name = "user_name")
 	private String userName;
 
+	// 用户名
+	@Column(name = "goods_id")
+	private String goodsId;
+
 	// 评论
 	@Column(name = "comment")
 	private String comment;
@@ -51,10 +55,11 @@ public class Comment{
 	public Comment() {
 	}
 
-	public Comment(Integer id, Integer userId, String userName, String comment, Integer evaluate, String commentStatus, Date createDate, Integer isDeleted) {
+	public Comment(Integer id, Integer userId, String userName, String goodsId, String comment, Integer evaluate, String commentStatus, Date createDate, Integer isDeleted) {
 		this.id = id;
 		this.userId = userId;
 		this.userName = userName;
+		this.goodsId = goodsId;
 		this.comment = comment;
 		this.evaluate = evaluate;
 		this.commentStatus = commentStatus;
@@ -84,6 +89,14 @@ public class Comment{
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(String goodsId) {
+		this.goodsId = goodsId;
 	}
 
 	public String getComment() {

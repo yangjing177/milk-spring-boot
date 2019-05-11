@@ -5,6 +5,7 @@ import com.neu.yang.dto.Selected;
 import com.neu.yang.model.Car;
 import com.neu.yang.model.Goods;
 import com.neu.yang.model.OrderInfo;
+import com.neu.yang.model.OrderProduct;
 import com.neu.yang.service.OrderInfoService;
 import com.neu.yang.service.OrderProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,13 @@ public class OrderController {
     @PostMapping("/queryOrderInfo")
     public List<OrderInfo> queryOrderInfo(@RequestBody OrderInfoDto orderInfoDto ) {
         List<OrderInfo> list=orderInfoService.findOrderInfo(orderInfoDto.getOrderStatus(),orderInfoDto.getUser());
+        return list;
+    }
+
+    @ResponseBody
+    @PostMapping("/queryOrderProduct")
+    public List<OrderProduct> queryOrderProduct(@RequestBody String orderNumber) {
+        List<OrderProduct> list=orderProductService.queryOrderProduct(orderNumber);
         return list;
     }
 

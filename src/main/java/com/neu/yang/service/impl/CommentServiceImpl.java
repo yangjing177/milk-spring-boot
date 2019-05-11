@@ -24,7 +24,7 @@ public class CommentServiceImpl implements CommentService {
      * 添加
      * @param comment
      */
-    public void save(Comment comment){
+    public void insert(Comment comment){
         commentMapper.insert(comment);
     }
 
@@ -44,11 +44,13 @@ public class CommentServiceImpl implements CommentService {
         commentMapper.updateByPrimaryKey(comment);
     }
 
+
     @Override
     public List<Comment> getCommentByUser(CommentSelected commentSelected) {
         String userName=commentSelected.getUserName();
+        Integer goodsId=commentSelected.getGoodsId();
         Integer evaluate=commentSelected.getEvaluate();
-        return commentMapper.getCommentByUser(userName,evaluate);
+        return commentMapper.getCommentByUser(userName,goodsId,evaluate);
     }
 
     /**

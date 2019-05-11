@@ -11,5 +11,5 @@ import java.util.List;
 @org.apache.ibatis.annotations.Mapper
 public interface CommentMapper extends Mapper<Comment> {
     List<Comment> findAll();
-    List<Comment> getCommentByUser(@Param("userName") String userName, @Param("evaluate") Integer evaluate);
+    List<Comment> getCommentByUser(@Param("userName") String userName,@Param("goodsId") Integer goodsId, @Param("evaluate") Integer evaluate);
 }

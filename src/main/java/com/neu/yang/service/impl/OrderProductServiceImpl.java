@@ -61,17 +61,22 @@ public class OrderProductServiceImpl implements OrderProductService {
         OrderProduct orderProduct=new OrderProduct();
          for(int i=0;i<cars.size();i++){
            orderProduct.setOrderNumber(orderNum);
-           orderProduct.setGoodsId(cars.get(0).getGoodsId());
-           orderProduct.setGoodsName(cars.get(0).getGoodsName());
-           orderProduct.setPrice(cars.get(0).getPrice());
-           orderProduct.setFirstDate(cars.get(0).getFirstDate());
-           orderProduct.setLastDate(cars.get(0).getLastDate());
-           orderProduct.setNumber(cars.get(0).getNumber());
-           orderProduct.setTotal(cars.get(0).getTotal());
-           orderProduct.setTotalPrice(cars.get(0).getTotalPrice());
+           orderProduct.setGoodsId(cars.get(i).getGoodsId());
+           orderProduct.setGoodsName(cars.get(i).getGoodsName());
+           orderProduct.setPrice(cars.get(i).getPrice());
+           orderProduct.setFirstDate(cars.get(i).getFirstDate());
+           orderProduct.setLastDate(cars.get(i).getLastDate());
+           orderProduct.setNumber(cars.get(i).getNumber());
+           orderProduct.setTotal(cars.get(i).getTotal());
+           orderProduct.setTotalPrice(cars.get(i).getTotalPrice());
            orderProduct.setIsDeleted(0);
            orderproductMapper.insert(orderProduct);
          }
          return 1;
+    }
+
+    @Override
+    public List<OrderProduct> queryOrderProduct(String orderNumber) {
+        return orderproductMapper.queryOrderProduct(orderNumber);
     }
 }
