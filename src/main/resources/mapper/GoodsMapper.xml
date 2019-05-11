@@ -20,9 +20,13 @@
     <select id="screenGoods" parameterType="com.neu.yang.dto.Selected" resultMap="BaseResultMap">
         select * from goods where
         is_deleted=0
-        and parent_type=#{parentType}
-        and brand=#{brand}
-            <if test="goodsName!=null and type!=''">
+        <if test="parentType!=null and parentType!=''">
+            and parent_type=#{parentType}
+        </if>
+        <if test="brand!=null and brand!=''">
+            and brand=#{brand}
+        </if>
+            <if test="goodsName!=null and goodsName!=''">
                 and goods_name like "%"#{goodsName,jdbcType=VARCHAR}"%"
             </if>
             <if test="type!=null and type!=''">

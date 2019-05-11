@@ -34,6 +34,7 @@ public class OrderInfo{
 	@Column(name = "box")
 	private Integer box;
 
+
 	// 订单总金额
 	@Column(name = "total_price")
 	private Float totalPrice;

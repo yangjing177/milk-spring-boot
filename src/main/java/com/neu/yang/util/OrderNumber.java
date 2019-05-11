@@ -9,26 +9,26 @@ public class OrderNumber extends Thread{
     private static String date ;
 
 //    public static void main(String[] args) throws InterruptedException {
-////        System.out.println(OrderNumber.getOrderNo());
-//        for (int i = 0; i < 10000; i++) {
-//            System.out.println(OrderNumber.getOrderNo());
-//            Thread.sleep(1000);
-//        }
+//        System.out.println(OrderNumber.getOrderNo());
+////        for (int i = 0; i < 10000; i++) {
+////            System.out.println(OrderNumber.getOrderNo());
+////            Thread.sleep(1000);
+////        }
 //    }
 
     /**
      * 生成订单编号
      * @return
      */
-    public String getOrderNo() {
+    public static String getOrderNo() {
         String str = new SimpleDateFormat("yyMMddHHmmSS").format(new Date());
         if(date==null||!date.equals(str)){
             date = str;
             orderNum  = 0l;
         }
         orderNum ++;
-        long orderNo = Long.parseLong((date)) * 10000;
-        orderNo += orderNum;;
+        long orderNo = Long.parseLong((date));
+//        orderNo += orderNum;;
         return orderNo+"";
     }
 }

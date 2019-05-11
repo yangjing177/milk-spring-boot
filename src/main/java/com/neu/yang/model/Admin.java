@@ -26,6 +26,14 @@ public class Admin{
 	@Column(name = "password")
 	private String password;
 
+	// 真实姓名
+	@Column(name = "name")
+	private String name;
+
+	// 性别
+	@Column(name = "sex")
+	private String sex;
+
 	// 创建时间
 	@Column(name = "create_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -45,10 +53,12 @@ public class Admin{
 	public Admin() {
 	}
 
-	public Admin(String id, String username, String password, Date createDate, Date updateDate, Integer isDeleted) {
+	public Admin(String id, String username, String password, String name, String sex, Date createDate, Date updateDate, Integer isDeleted) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.name = name;
+		this.sex = sex;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
 		this.isDeleted = isDeleted;
@@ -76,6 +86,22 @@ public class Admin{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	public Date getCreateDate() {

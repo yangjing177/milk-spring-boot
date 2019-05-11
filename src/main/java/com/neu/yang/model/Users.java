@@ -32,7 +32,7 @@ public class Users{
 	@Column(name = "mobile")
 	private String mobile;
 
-	// 真是姓名
+	// 真实姓名
 	@Column(name = "name")
 	private String name;
 
@@ -40,7 +40,7 @@ public class Users{
 	@Column(name = "sex")
 	private String sex;
 
-	// 性别
+	// 身份证号
 	@Column(name = "id_number")
 	private String idNumber;
 

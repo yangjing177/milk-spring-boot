@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.neu.yang.mapper.CommentMapper">
+    <resultMap id="BaseResultMap" type="com.neu.yang.model.Comment">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="user_id" property="userId" jdbcType="INTEGER" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="comment" property="comment" jdbcType="VARCHAR" />
+        <result column="evaluate" property="evaluate" jdbcType="INTEGER" />
+        <result column="comment_status" property="commentStatus" jdbcType="VARCHAR" />
+        <result column="create_date" property="createDate" jdbcType="DATE" />
+        <result column="is_deleted" property="isDeleted" jdbcType="TINYINT" />
+    </resultMap>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        select * from comment where
+        is_deleted=0
+    </select>
+
+    <select id="getCommentByUser" resultMap="BaseResultMap">
+        select * from comment where
+        is_deleted=0
+        and user_name=#{userName}
+        <if test="evaluate!=0">
+            and evaluate=#{evaluate}
+        </if>
+    </select>
+
+</mapper>

@@ -4,6 +4,7 @@ import com.neu.yang.entity.Info;
 import com.neu.yang.entity.MyResult;
 import com.neu.yang.mapper.AdminMapper;
 import com.neu.yang.model.Admin;
+import com.neu.yang.model.Comment;
 import com.neu.yang.service.AdminService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +27,7 @@ public class AdminServiceImpl implements AdminService {
      */
     public void save(Admin admin){
         adminMapper.insert(admin);
+        String str="";
     }
 
     /**
@@ -48,8 +50,16 @@ public class AdminServiceImpl implements AdminService {
      * 查询所有
      * @return
      */
-    public List<Admin> findAll(){
-        return adminMapper.selectAll();
+    @Override
+    public Map<String, Object> findAll() {
+        List<Admin> list=adminMapper.findAll();
+        Map<String,Object> map=new HashMap<>();
+        int totalRow=list.size();
+        int code=20000;
+        map.put("code",code);
+        map.put("data",list);
+        map.put("totalRow",totalRow);
+        return map;
     }
     /**
      * 查询

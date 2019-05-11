@@ -27,7 +27,8 @@ public class OrderController {
     @ResponseBody
     @PostMapping("/insertOrderInfo")
     public String insertOrderInfo(@RequestBody OrderInfo orderInfo) {
-        return orderInfoService.insertOrderInfo(orderInfo);
+        String orderNum=orderInfoService.insertOrderInfo(orderInfo);
+        return orderNum;
     }
 
     @ResponseBody
