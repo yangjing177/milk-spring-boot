@@ -21,7 +21,6 @@
     <select id="getCommentByUser" resultMap="BaseResultMap">
         select * from comment where
         is_deleted=0
-        and user_name=#{userName}
         and goods_id=#{goodsId}
         <if test="evaluate!=0">
             and evaluate=#{evaluate}

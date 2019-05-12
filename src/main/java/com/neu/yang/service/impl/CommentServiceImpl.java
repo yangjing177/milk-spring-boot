@@ -47,10 +47,9 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> getCommentByUser(CommentSelected commentSelected) {
-        String userName=commentSelected.getUserName();
         Integer goodsId=commentSelected.getGoodsId();
         Integer evaluate=commentSelected.getEvaluate();
-        return commentMapper.getCommentByUser(userName,goodsId,evaluate);
+        return commentMapper.getCommentByUser(goodsId,evaluate);
     }
 
     /**
