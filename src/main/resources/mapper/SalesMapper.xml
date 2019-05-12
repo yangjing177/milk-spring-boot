@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.neu.yang.mapper.SalesMapper">
+    <resultMap id="BaseResultMap" type="com.neu.yang.model.Sales">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+        <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+        <result column="total" property="total" jdbcType="INTEGER" />
+        <result column="total_price" property="totalPrice" jdbcType="FLOAT" />
+        <result column="is_deleted" property="isDeleted" jdbcType="TINYINT" />
+    </resultMap>
+    <select id="queryByGoodId" resultMap="BaseResultMap">
+        select * from sales
+        where is_deleted = 0
+        and goods_id = #{goodsId}
+    </select>
+
+
+
+
+
+
+</mapper>
