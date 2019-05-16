@@ -8,4 +8,5 @@ import java.util.List;
 @org.apache.ibatis.annotations.Mapper
 public interface AddressMapper extends Mapper<Address> {
     List<Address> findAddress(String user);
+    int findMaxId();
 }

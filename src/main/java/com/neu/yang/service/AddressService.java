@@ -8,4 +8,5 @@ public interface AddressService {
     List<Address> findAddress(String user);
     void update(Address address);
     void save(Address address);
+    int findMaxId();
 }

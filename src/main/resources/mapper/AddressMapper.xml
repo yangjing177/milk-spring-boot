@@ -4,6 +4,7 @@
     <resultMap id="BaseResultMap" type="com.neu.yang.model.Address">
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="census" property="census" jdbcType="VARCHAR" />
         <result column="address" property="address" jdbcType="VARCHAR" />
         <result column="mobile" property="mobile" jdbcType="VARCHAR" />
@@ -12,18 +13,23 @@
         <result column="is_deleted" property="isDeleted" jdbcType="INTEGER" />
     </resultMap>
 
-    <select id="findAddress" resultType="com.neu.yang.model.Address">
-        select
-        id,
-        user_name userName,
-        census,
-        address,
-        mobile,
-        post_code postCode,
-        default_address defaultAddress,
-        is_deleted isDeleted
+    <select id="findAddress" resultMap="BaseResultMap">
+        select *
+        <!--id,-->
+        <!--user_name userName,-->
+        <!--census,-->
+        <!--address,-->
+        <!--mobile,-->
+        <!--post_code postCode,-->
+        <!--default_address defaultAddress,-->
+        <!--is_deleted isDeleted-->
         from address
         where is_deleted=0
         and user_name=#{user}
+    </select>
+
+    <select id="findMaxId" resultType="Integer">
+        select max(id) from address
+        where is_deleted=0
     </select>
 </mapper>

@@ -22,9 +22,6 @@
         select * from comment where
         is_deleted=0
         and goods_id=#{goodsId}
-        <if test="evaluate!=0">
-            and evaluate=#{evaluate}
-        </if>
         <if test="evaluate==1">
             and evaluate in (4,5)
         </if>

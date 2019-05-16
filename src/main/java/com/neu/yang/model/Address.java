@@ -18,6 +18,10 @@ public class Address {
 	@Column(name = "user_name")
 	private String userName;
 
+	// 姓名
+	@Column(name = "name")
+	private String name;
+
 	// 户籍
 	@Column(name = "census")
 	private String census;
@@ -45,9 +49,10 @@ public class Address {
 	public Address() {
 	}
 
-	public Address(Integer id, String userName, String census, String address, String mobile, String postCode, Integer defaultAddress, Integer isDeleted) {
+	public Address(Integer id, String userName, String name, String census, String address, String mobile, String postCode, Integer defaultAddress, Integer isDeleted) {
 		this.id = id;
 		this.userName = userName;
+		this.name = name;
 		this.census = census;
 		this.address = address;
 		this.mobile = mobile;
@@ -70,6 +75,14 @@ public class Address {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getCensus() {

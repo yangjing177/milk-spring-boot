@@ -24,6 +24,11 @@ public class AddressServiceImpl implements AddressService {
         adressMapper.insert(adress);
     }
 
+    @Override
+    public int findMaxId() {
+        return adressMapper.findMaxId();
+    }
+
     /**
      * 主键删除
      * @param id

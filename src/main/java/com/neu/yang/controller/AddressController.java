@@ -41,14 +41,22 @@ public class AddressController {
     @ResponseBody
     @PostMapping("/insert")
     public void insert(@RequestBody Address address) {
+        int addId=addressService.findMaxId();
         address.setIsDeleted(0);
         addressService.save(address);
         List<Address> list = addressService.findAddress(address.getUserName());
         for(Address addr:list){
-            if(addr.getDefaultAddress()==0&&address.getId()!=addr.getId()){
+            if(addr.getDefaultAddress()==0&&addId>=addr.getId()){
                 addr.setDefaultAddress(1);
                 addressService.update(addr);
             }
         }
+    }
+
+    @ResponseBody
+    @PostMapping("/delete")
+    public void delete(@RequestBody Address address) {
+        address.setIsDeleted(1);
+        addressService.update(address);
     }
 }
