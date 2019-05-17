@@ -22,6 +22,7 @@
         select * from comment where
         is_deleted=0
         and goods_id=#{goodsId}
+        and comment_status=0
         <if test="evaluate==1">
             and evaluate in (4,5)
         </if>
