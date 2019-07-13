@@ -65,6 +65,7 @@ public class UsersServiceImpl implements UsersService {
         return usersMapper.selectByPrimaryKey(id);
     }
 
+    //用户登录
     @Override
     public Map<String, Object> login(String username, String password) {
         Users u=new Users();
@@ -87,6 +88,7 @@ public class UsersServiceImpl implements UsersService {
         return map;
     }
 
+    //用户注册
     @Override
     public Map<String, Object> register(Users users) {
         String message=null;
